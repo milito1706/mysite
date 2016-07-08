@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::Get('notes', function () {
     
     $notes = Note::All();
-    return view('notes',compact('notes'));
+    return view('notes/list',compact('notes'));
 });
 
 Route::post('notes',function(){
@@ -28,7 +28,7 @@ Route::post('notes',function(){
 
 Route::Get('notes/create',function(){
     
-    return '[Migue Angel Martinez]';
+    return view('notes/create');
 
 });
 
