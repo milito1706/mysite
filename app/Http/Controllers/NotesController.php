@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Note;
 
 use Illuminate\Http\Request;
-
+//use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 
 class NotesController extends Controller
@@ -23,7 +23,10 @@ class NotesController extends Controller
 
     public function store(){
 
-    	 return 'Creating a note';
+    	 	$data = request()->all();
+    	 	Note::create($data);
+    	 	return redirect()->to('notes');
+
     }
 
     public function show($note){
