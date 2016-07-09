@@ -22,10 +22,15 @@ class NotesController extends Controller
     }
 
     public function store(){
-
-    	 	$data = request()->all();
-    	 	Note::create($data);
-    	 	return redirect()->to('notes');
+            $this->validate(request(),[
+            'note'=>['required','max:20']
+            ]);
+            
+            $data = request()->all();
+    	 	
+            Note::create($data);
+    	 	
+            return redirect()->to('notes');
 
     }
 
